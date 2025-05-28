@@ -1,48 +1,65 @@
-# Cloudflare Key-Value Full API integration Workflow
-
-## Use cases:
-
-1.  **Dynamic Configuration:** Store application configurations in Cloudflare KV and update them in real-time without redeploying code. For example, feature flags, API endpoint URLs, or rate-limiting rules.
-2.  **A/B Testing:** Implement A/B testing by storing different content variations in KV and serving them based on user segments or other criteria.
-3.  **Session Management:** Use Cloudflare KV to store user session data for serverless applications, enabling scalable and performant session management.
-
-## How it works:
-
-This workflow provides a comprehensive set of tools for interacting with Cloudflare's Key-Value (KV) storage. It includes functionalities for:
-
-1.  **Namespace Management:**
-    *   Creating new KV namespaces using the "Create KV-NM" node, which sends a POST request to the Cloudflare API.
-    *   Renaming existing namespaces using the "Delete KV1" node, which sends a PUT request to the Cloudflare API.
-    *   Deleting namespaces using the "Delete KV" node, which sends a DELETE request to the Cloudflare API.
-2.  **Key-Value Pair Management:**
-    *   Writing single key-value pairs to a namespace using the "Write V & MD of KV In NM" node, including the option to add metadata.
-    *   Reading the value of a key in a namespace using the "Read Value Of KV In NM" node.
-    *   Reading the metadata associated with a key using the "Read MD from Key" node.
-    *   Deleting a specific key-value pair from a namespace using the "Delete KV inside NM" node.
-    *   Writing multiple key-value pairs in bulk to a namespace using the "Write KVs inside NM" node.
-    *   Deleting multiple key-value pairs in bulk from a namespace using the "Delete KVs inside NM" node.
-    *   Listing all keys inside a namespace using the "-Get Keys inside NM" node.
-3.  **Account Configuration:**
-    *   The "Account Path" node sets the Cloudflare account identifier, which is required for all API requests.
-4.  **Authentication:**
-    *   The workflow uses the "cloudflareApi" credential type for authentication, which must be pre-configured in n8n.
-
-**Key Nodes:**
-
-*   **Account Path:** Sets the Cloudflare account ID. This is essential for all requests.
-*   **Create KV-NM:** Creates a new KV namespace.
-*   **List KV-NMs (1-10):** Retrieves a list of existing KV namespaces. Used to dynamically select the correct namespace ID for other operations.
-*   **Set KV-NM Name (1-8):**  Sets the namespace name and key name.
-*   **Write V & MD of KV In NM:** Writes a key-value pair with metadata.
-*   **Read Value Of KV In NM:** Reads the value of a key.
-*   **Delete KV inside NM:** Deletes a specific key.
-*   **Delete KVs inside NM:** Deletes multiple keys in bulk.
-*   **Write KVs inside NM:** Writes multiple key-value pairs in bulk.
-
-## Services:
-
-*   Cloudflare KV
-
-## Hashtags:
-
-#n8n #cloudflare #kvstorage #automation #serverless
+IyBDbG91ZGZsYXJlIEtleS1WYWx1ZSBGdWxsIEFQSSBpbnRlZ3JhdGlvbiBX
+b3JrZmxvdwoKIyMgVXNlIGNhc2VzOgoKMS4gICoqRHluYW1pYyBDb25maWd1
+cmF0aW9uOioqIFN0b3JlIGFwcGxpY2F0aW9uIGNvbmZpZ3VyYXRpb25zIGlu
+IENsb3VkZmxhcmUgS1YgYW5kIHVwZGF0ZSB0aGVtIGluIHJlYWwtdGltZSB3
+aXRob3V0IHJlZGVwbG95aW5nIGNvZGUuIEZvciBleGFtcGxlLCBmZWF0dXJl
+IGZsYWdzLCBBUEkgZW5kcG9pbnQgVVJMcywgb3IgcmF0ZS1saW1pdGluZyBy
+dWxlcy4KMi4gICoqQS9CIFRlc3Rpbmc6KiogSW1wbGVtZW50IEEvQiB0ZXN0
+aW5nIGJ5IHN0b3JpbmcgZGlmZmVyZW50IGNvbnRlbnQgdmFyaWF0aW9ucyBp
+biBLViBhbmQgc2VydmluZyB0aGVtIGJhc2VkIG9uIHVzZXIgc2VnbWVudHMg
+b3Igb3RoZXIgY3JpdGVyaWEuCjMuICAqKlNlc3Npb24gTWFuYWdlbWVudDoq
+KiBVc2UgQ2xvdWRmbGFyZSBLViB0byBzdG9yZSB1c2VyIHNlc3Npb24gZGF0
+YSBmb3Igc2VydmVybGVzcyBhcHBsaWNhdGlvbnMsIGVuYWJsaW5nIHNjYWxh
+YmxlIGFuZCBwZXJmb3JtYW50IHNlc3Npb24gbWFuYWdlbWVudC4KCiMjIEhv
+dyBpdCB3b3JrczoKClRoaXMgd29ya2Zsb3cgcHJvdmlkZXMgYSBjb21wcmVo
+ZW5zaXZlIHNldCBvZiB0b29scyBmb3IgaW50ZXJhY3Rpbmcgd2l0aCBDbG91
+ZGZsYXJlJ3MgS2V5LVZhbHVlIChLVikgc3RvcmFnZS4gSXQgaW5jbHVkZXMg
+ZnVuY3Rpb25hbGl0aWVzIGZvcjoKCjEuICAqKk5hbWVzcGFjZSBNYW5hZ2Vt
+ZW50OioqCiAgICAqICAgQ3JlYXRpbmcgbmV3IEtWIG5hbWVzcGFjZXMgdXNp
+bmcgdGhlICJDcmVhdGUgS1YtTk0iIG5vZGUsIHdoaWNoIHNlbmRzIGEgUE9T
+VCByZXF1ZXN0IHRvIHRoZSBDbG91ZGZsYXJlIEFQSS4KICAgICogICBSZW5h
+bWluZyBleGlzdGluZyBuYW1lc3BhY2VzIHVzaW5nIHRoZSAiRGVsZXRlIEtW
+MSIgbm9kZSwgd2hpY2ggc2VuZHMgYSBQVVQgcmVxdWVzdCB0byB0aGUgQ2xv
+dWRmbGFyZSBBUEkuCiAgICAqICAgRGVsZXRpbmcgbmFtZXNwYWNlcyB1c2lu
+ZyB0aGUgIkRlbGV0ZSBLViIgbm9kZSwgd2hpY2ggc2VuZHMgYSBERUxFVEUg
+cmVxdWVzdCB0byB0aGUgQ2xvdWRmbGFyZSBBUEkuCjIuICAqKktleS1WYWx1
+ZSBQYWlyIE1hbmFnZW1lbnQ6KioKICAgICogICBXcml0aW5nIHNpbmdsZSBr
+ZXktdmFsdWUgcGFpcnMgdG8gYSBuYW1lc3BhY2UgdXNpbmcgdGhlICJXcml0
+ZSBWICYgTUQgb2YgS1YgSW4gTk0iIG5vZGUsIGluY2x1ZGluZyB0aGUgb3B0
+aW9uIHRvIGFkZCBtZXRhZGF0YS4KICAgICogICBSZWFkaW5nIHRoZSB2YWx1
+ZSBvZiBhIGtleSBpbiBhIG5hbWVzcGFjZSB1c2luZyB0aGUgIlJlYWQgVmFs
+dWUgT2YgS1YgSW4gTk0iIG5vZGUuCiAgICAqICAgUmVhZGluZyB0aGUgbWV0
+YWRhdGEgYXNzb2NpYXRlZCB3aXRoIGEga2V5IHVzaW5nIHRoZSAiUmVhZCBN
+RCBmcm9tIEtleSIgbm9kZS4KICAgICogICBEZWxldGluZyBhIHNwZWNpZmlj
+IGtleS12YWx1ZSBwYWlyIGZyb20gYSBuYW1lc3BhY2UgdXNpbmcgdGhlICJE
+ZWxldGUgS1YgaW5zaWRlIE5NIiBub2RlLgogICAgKiAgIFdyaXRpbmcgbXVs
+dGlwbGUga2V5LXZhbHVlIHBhaXJzIGluIGJ1bGsgdG8gYSBuYW1lc3BhY2Ug
+dXNpbmcgdGhlICJXcml0ZSBLVnMgaW5zaWRlIE5NIiBub2RlLgogICAgKiAg
+IERlbGV0aW5nIG11bHRpcGxlIGtleS12YWx1ZSBwYWlycyBpbiBidWxrIGZy
+b20gYSBuYW1lc3BhY2UgdXNpbmcgdGhlICJEZWxldGUgS1ZzIGluc2lkZSBO
+TSIgbm9kZS4KICAgICogICBMaXN0aW5nIGFsbCBrZXlzIGluc2lkZSBhIG5h
+bWVzcGFjZSB1c2luZyB0aGUgIi1HZXQgS2V5cyBpbnNpZGUgTk0iIG5vZGUu
+CjMuICAqKkFjY291bnQgQ29uZmlndXJhdGlvbjoqKgogICAgKiAgIFRoZSAi
+QWNjb3VudCBQYXRoIiBub2RlIHNldHMgdGhlIENsb3VkZmxhcmUgYWNjb3Vu
+dCBpZGVudGlmaWVyLCB3aGljaCBpcyByZXF1aXJlZCBmb3IgYWxsIEFQSSBy
+ZXF1ZXN0cy4KNC4gICoqQXV0aGVudGljYXRpb246KioKICAgICogICBUaGUg
+d29ya2Zsb3cgdXNlcyB0aGUgImNsb3VkZmxhcmVBcGkiIGNyZWRlbnRpYWwg
+dHlwZSBmb3IgYXV0aGVudGljYXRpb24sIHdoaWNoIG11c3QgYmUgcHJlLWNv
+bmZpZ3VyZWQgaW4gbjhuLgoKKipLZXkgTm9kZXM6KioKCiogICAqKkFjY291
+bnQgUGF0aDoqKiBTZXRzIHRoZSBDbG91ZGZsYXJlIGFjY291bnQgSUQuIFRo
+aXMgaXMgZXNzZW50aWFsIGZvciBhbGwgcmVxdWVzdHMuCiogICAqKkNyZWF0
+ZSBLVi1OTToqKiBDcmVhdGVzIGEgbmV3IEtWIG5hbWVzcGFjZS4KKiAgICoq
+TGlzdCBLVi1OTXMgKDEtMTApOioqIFJldHJpZXZlcyBhIGxpc3Qgb2YgZXhp
+c3RpbmcgS1YgbmFtZXNwYWNlcy4gVXNlZCB0byBkeW5hbWljYWxseSBzZWxl
+Y3QgdGhlIGNvcnJlY3QgbmFtZXNwYWNlIElEIGZvciBvdGhlciBvcGVyYXRp
+b25zLgoqICAgKipTZXQgS1YtTk0gTmFtZSAoMS04KToqKiAgU2V0cyB0aGUg
+bmFtZXNwYWNlIG5hbWUgYW5kIGtleSBuYW1lLgoqICAgKipXcml0ZSBWICYg
+TUQgb2YgS1YgSW4gTk06KiogV3JpdGVzIGEga2V5LXZhbHVlIHBhaXIgd2l0
+aCBtZXRhZGF0YS4KKiAgICoqUmVhZCBWYWx1ZSBPZiBLViBJbiBOTToqKiBS
+ZWFkcyB0aGUgdmFsdWUgb2YgYSBrZXkuCiogICAqKkRlbGV0ZSBLViBpbnNp
+ZGUgTk06KiogRGVsZXRlcyBhIHNwZWNpZmljIGtleS4KKiAgICoqRGVsZXRl
+IEtWcyBpbnNpZGUgTk06KiogRGVsZXRlcyBtdWx0aXBsZSBrZXlzIGluIGJ1
+bGsuCiogICAqKldyaXRlIEtWcyBpbnNpZGUgTk06KiogV3JpdGVzIG11bHRp
+cGxlIGtleS12YWx1ZSBwYWlycyBpbiBidWxrLgoKIyMgU2VydmljZXM6Cgoq
+ICAgQ2xvdWRmbGFyZSBLVgoKIyMgSGFzaHRhZ3M6CgojbjhuICNjbG91ZGZs
+YXJlICNrdnN0b3JhZ2UgI2F1dG9tYXRpb24gI3NlcnZlcmxlc3MK
