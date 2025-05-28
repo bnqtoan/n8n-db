@@ -1,21 +1,26 @@
-# Google Slides Thumbnail Extractor
-
-## Use cases:
-
-- **Content Management:** Automatically extract thumbnails from Google Slides presentations for use in a content management system or website, providing visual previews of your slides.
-- **Educational Material Generation:** Generate thumbnails of slides for educational platforms, online courses, or study guides, making it easier for students to navigate and review content.
-- **Presentation Archiving:** Create a visual archive of your Google Slides presentations by extracting and storing thumbnails of each slide.
-
-## How it works:
-
-1.  **Manual Trigger:** The workflow starts when you manually execute it within n8n.
-2.  **Get Slides:** The "Google Slides" node retrieves all slides from a specified Google Slides presentation using its ID.
-3.  **Get Thumbnail:** The "Google Slides1" node iterates through each slide and downloads its thumbnail image. The presentation ID is dynamically retrieved from the previous node, and the page object ID is used to identify the slide.
-
-## Services:
-
--   Google Slides API
-
-## Hashtags:
-
-#n8n #GoogleSlides #Automation #Thumbnail #Workflow
+IyBHb29nbGUgU2xpZGVzIFRodW1ibmFpbCBFeHRyYWN0b3IKCiMjIFVzZSBj
+YXNlczoKCi0gKipDb250ZW50IE1hbmFnZW1lbnQ6KiogQXV0b21hdGljYWxs
+eSBleHRyYWN0IHRodW1ibmFpbHMgZnJvbSBHb29nbGUgU2xpZGVzIHByZXNl
+bnRhdGlvbnMgZm9yIHVzZSBpbiBhIGNvbnRlbnQgbWFuYWdlbWVudCBzeXN0
+ZW0gb3Igd2Vic2l0ZSwgcHJvdmlkaW5nIHZpc3VhbCBwcmV2aWV3cyBvZiB5
+b3VyIHNsaWRlcy4KLSAqKkVkdWNhdGlvbmFsIE1hdGVyaWFsIEdlbmVyYXRp
+b246KiogR2VuZXJhdGUgdGh1bWJuYWlscyBvZiBzbGlkZXMgZm9yIGVkdWNh
+dGlvbmFsIHBsYXRmb3Jtcywgb25saW5lIGNvdXJzZXMsIG9yIHN0dWR5IGd1
+aWRlcywgbWFraW5nIGl0IGVhc2llciBmb3Igc3R1ZGVudHMgdG8gbmF2aWdh
+dGUgYW5kIHJldmlldyBjb250ZW50LgotICoqUHJlc2VudGF0aW9uIEFyY2hp
+dmluZzoqKiBDcmVhdGUgYSB2aXN1YWwgYXJjaGl2ZSBvZiB5b3VyIEdvb2ds
+ZSBTbGlkZXMgcHJlc2VudGF0aW9ucyBieSBleHRyYWN0aW5nIGFuZCBzdG9y
+aW5nIHRodW1ibmFpbHMgb2YgZWFjaCBzbGlkZS4KCiMjIEhvdyBpdCB3b3Jr
+czoKCjEuICAqKk1hbnVhbCBUcmlnZ2VyOioqIFRoZSB3b3JrZmxvdyBzdGFy
+dHMgd2hlbiB5b3UgbWFudWFsbHkgZXhlY3V0ZSBpdCB3aXRoaW4gbjhuLgoy
+LiAgKipHZXQgU2xpZGVzOioqIFRoZSAiR29vZ2xlIFNsaWRlcyIgbm9kZSBy
+ZXRyaWV2ZXMgYWxsIHNsaWRlcyBmcm9tIGEgc3BlY2lmaWVkIEdvb2dsZSBT
+bGlkZXMgcHJlc2VudGF0aW9uIHVzaW5nIGl0cyBJRC4KMy4gICoqR2V0IFRo
+dW1ibmFpbDoqKiBUaGUgIkdvb2dsZSBTbGlkZXMxIiBub2RlIGl0ZXJhdGVz
+IHRocm91Z2ggZWFjaCBzbGlkZSBhbmQgZG93bmxvYWRzIGl0cyB0aHVtYm5h
+aWwgaW1hZ2UuIFRoZSBwcmVzZW50YXRpb24gSUQgaXMgZHluYW1pY2FsbHkg
+cmV0cmlldmVkIGZyb20gdGhlIHByZXZpb3VzIG5vZGUsIGFuZCB0aGUgcGFn
+ZSBvYmplY3QgSUQgaXMgdXNlZCB0byBpZGVudGlmeSB0aGUgc2xpZGUuCgoj
+IyBTZXJ2aWNlczoKCi0gICBHb29nbGUgU2xpZGVzIEFQSQoKIyMgSGFzaHRh
+Z3M6CgojbjhuICNHb29nbGVTbGlkZXMgI0F1dG9tYXRpb24gI1RodW1ibmFp
+bCAjV29ya2Zsb3cK
