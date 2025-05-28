@@ -1,29 +1,35 @@
-# AI Daily News
-
-## Use cases:
-
-- **Daily AI News Digest:** Automatically gathers the latest AI-related news from multiple sources and sends a summarized version to a Telegram channel at a specific time each day.
-- **AI Research Monitoring:** Track AI advancements by collecting news articles, summarizing them, and sending a summary to a Telegram group for discussion among researchers.
-- **Personalized AI News Feed:** Customize news sources to receive an AI-generated news update focused on the topics of interest.
-
-## How it works:
-
-1.  **Trigger:** The workflow starts with a "Schedule Trigger" node that activates the workflow at 6:00 AM every day.
-2.  **Date Calculation:** A "Substract Current date by one" node subtracts one day from the current date.
-3.  **News Sources:**
-    *   "News Source: NewsAPI" and "News Source: GNewsAPI" nodes fetch news articles from the NewsAPI and GNewsAPI, respectively, using the calculated date.
-4.  **Extract News:** The "ExtractAllNews" and "ExtractAllNews1" nodes process the responses from the news APIs, extracting the relevant news.
-5.  **Merge:** The "Merge" node combines the news from both sources into a single data stream.
-6.  **AI Agent:** This uses the LLM "Google Gemini Chat Model" and is responsible for generating the news summery.
-7.  **Telegram:** Finally, the "Telegram" node sends the news summary as a message to a specified Telegram chat.
-
-## Services:
-
--   NewsAPI
--   GNewsAPI
--   Telegram
--   Google Gemini Chat Model
-
-## Hashtags:
-
-#n8n #automation #AINews #Telegram #NewsAggregation
+IyBBSSBEYWlseSBOZXdzCgojIyBVc2UgY2FzZXM6CgotICoqRGFpbHkgQUkg
+TmV3cyBEaWdlc3Q6KiogQXV0b21hdGljYWxseSBnYXRoZXJzIHRoZSBsYXRl
+c3QgQUktcmVsYXRlZCBuZXdzIGZyb20gbXVsdGlwbGUgc291cmNlcyBhbmQg
+c2VuZHMgYSBzdW1tYXJpemVkIHZlcnNpb24gdG8gYSBUZWxlZ3JhbSBjaGFu
+bmVsIGF0IGEgc3BlY2lmaWMgdGltZSBlYWNoIGRheS4KLSAqKkFJIFJlc2Vh
+cmNoIE1vbml0b3Jpbmc6KiogVHJhY2sgQUkgYWR2YW5jZW1lbnRzIGJ5IGNv
+bGxlY3RpbmcgbmV3cyBhcnRpY2xlcywgc3VtbWFyaXppbmcgdGhlbSwgYW5k
+IHNlbmRpbmcgYSBzdW1tYXJ5IHRvIGEgVGVsZWdyYW0gZ3JvdXAgZm9yIGRp
+c2N1c3Npb24gYW1vbmcgcmVzZWFyY2hlcnMuCi0gKipQZXJzb25hbGl6ZWQg
+QUkgTmV3cyBGZWVkOioqIEN1c3RvbWl6ZSBuZXdzIHNvdXJjZXMgdG8gcmVj
+ZWl2ZSBhbiBBSS1nZW5lcmF0ZWQgbmV3cyB1cGRhdGUgZm9jdXNlZCBvbiB0
+aGUgdG9waWNzIG9mIGludGVyZXN0LgoKIyMgSG93IGl0IHdvcmtzOgoKMS4g
+ICoqVHJpZ2dlcjoqKiBUaGUgd29ya2Zsb3cgc3RhcnRzIHdpdGggYSAiU2No
+ZWR1bGUgVHJpZ2dlciIgbm9kZSB0aGF0IGFjdGl2YXRlcyB0aGUgd29ya2Zs
+b3cgYXQgNjowMCBBTSBldmVyeSBkYXkuCjIuICAqKkRhdGUgQ2FsY3VsYXRp
+b246KiogQSAiU3Vic3RyYWN0IEN1cnJlbnQgZGF0ZSBieSBvbmUiIG5vZGUg
+c3VidHJhY3RzIG9uZSBkYXkgZnJvbSB0aGUgY3VycmVudCBkYXRlLgozLiAg
+KipOZXdzIFNvdXJjZXM6KioKICAgICogICAiTmV3cyBTb3VyY2U6IE5ld3NB
+UEkiIGFuZCAiTmV3cyBTb3VyY2U6IEdOZXdzQVBJIiBub2RlcyBmZXRjaCBu
+ZXdzIGFydGljbGVzIGZyb20gdGhlIE5ld3NBUEkgYW5kIEdOZXdzQVBJLCBy
+ZXNwZWN0aXZlbHksIHVzaW5nIHRoZSBjYWxjdWxhdGVkIGRhdGUuCjQuICAq
+KkV4dHJhY3QgTmV3czoqKiBUaGUgIkV4dHJhY3RBbGxOZXdzIiBhbmQgIkV4
+dHJhY3RBbGxOZXdzMSIgbm9kZXMgcHJvY2VzcyB0aGUgcmVzcG9uc2VzIGZy
+b20gdGhlIG5ld3MgQVBJcywgZXh0cmFjdGluZyB0aGUgcmVsZXZhbnQgbmV3
+cy4KNS4gICoqTWVyZ2U6KiogVGhlICJNZXJnZSIgbm9kZSBjb21iaW5lcyB0
+aGUgbmV3cyBmcm9tIGJvdGggc291cmNlcyBpbnRvIGEgc2luZ2xlIGRhdGEg
+c3RyZWFtLgo2LiAgKipBSSBBZ2VudDoqKiBUaGlzIHVzZXMgdGhlIExMTSAi
+R29vZ2xlIEdlbWluaSBDaGF0IE1vZGVsIiBhbmQgaXMgcmVzcG9uc2libGUg
+Zm9yIGdlbmVyYXRpbmcgdGhlIG5ld3Mgc3VtbWVyeS4KNy4gICoqVGVsZWdy
+YW06KiogRmluYWxseSwgdGhlICJUZWxlZ3JhbSIgbm9kZSBzZW5kcyB0aGUg
+bmV3cyBzdW1tYXJ5IGFzIGEgbWVzc2FnZSB0byBhIHNwZWNpZmllZCBUZWxl
+Z3JhbSBjaGF0LgoKIyMgU2VydmljZXM6CgotICAgTmV3c0FQSQotICAgR05l
+d3NBUEkKLSAgIFRlbGVncmFtCi0gICBHb29nbGUgR2VtaW5pIENoYXQgTW9k
+ZWwKCiMjIEhhc2h0YWdzOgoKI244biAjYXV0b21hdGlvbiAjQUlOZXdzICNU
+ZWxlZ3JhbSAjTmV3c0FnZ3JlZ2F0aW9uCg==
