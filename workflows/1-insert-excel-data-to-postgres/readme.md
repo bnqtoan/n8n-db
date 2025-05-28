@@ -1,20 +1,31 @@
-# Workflow Readme
-
-## Use cases:
-
-1.  **Data Migration:** This workflow can be used to migrate data from a spreadsheet file (specifically in .xls format) into a PostgreSQL database table. This is useful when consolidating data from legacy systems or manually created spreadsheets.
-2.  **Automated Data Import:** The workflow can be scheduled to automatically import data from a .xls file on a regular basis. For instance, import a product list received daily/weekly in .xls format into a product database.
-
-## How it works:
-
-1.  The workflow starts with the "Read Binary File" node, which reads the content of the "spreadsheet.xls" file from the n8n instance disk (or mounted volume).
-2.  The "Spreadsheet File1" node parses the binary data from the .xls file into a structured format that n8n can work with.
-3.  The "Insert Rows1" node takes the data extracted from the spreadsheet and inserts it as new rows into the "product" table in a PostgreSQL database. The node is configured to populate the "name" and "ean" columns of the "product" table using the corresponding data from the spreadsheet. The PostgreSQL connection is established using the "postgres" credentials.
-
-## Services:
-
-*   **PostgreSQL:** The workflow interacts with a PostgreSQL database to insert the data.
-
-## Hashtags:
-
-#n8n #automation #database #postgres #spreadsheet #dataimport
+IyBXb3JrZmxvdyBSZWFkbWUKCiMjIFVzZSBjYXNlczoKCjEuICAqKkRhdGEg
+TWlncmF0aW9uOioqIFRoaXMgd29ya2Zsb3cgY2FuIGJlIHVzZWQgdG8gbWln
+cmF0ZSBkYXRhIGZyb20gYSBzcHJlYWRzaGVldCBmaWxlIChzcGVjaWZpY2Fs
+bHkgaW4gLnhscyBmb3JtYXQpIGludG8gYSBQb3N0Z3JlU1FMIGRhdGFiYXNl
+IHRhYmxlLiBUaGlzIGlzIHVzZWZ1bCB3aGVuIGNvbnNvbGlkYXRpbmcgZGF0
+YSBmcm9tIGxlZ2FjeSBzeXN0ZW1zIG9yIG1hbnVhbGx5IGNyZWF0ZWQgc3By
+ZWFkc2hlZXRzLgoyLiAgKipBdXRvbWF0ZWQgRGF0YSBJbXBvcnQ6KiogVGhl
+IHdvcmtmbG93IGNhbiBiZSBzY2hlZHVsZWQgdG8gYXV0b21hdGljYWxseSBp
+bXBvcnQgZGF0YSBmcm9tIGEgLnhscyBmaWxlIG9uIGEgcmVndWxhciBiYXNp
+cy4gRm9yIGluc3RhbmNlLCBpbXBvcnQgYSBwcm9kdWN0IGxpc3QgcmVjZWl2
+ZWQgZGFpbHkvd2Vla2x5IGluIC54bHMgZm9ybWF0IGludG8gYSBwcm9kdWN0
+IGRhdGFiYXNlLgoKIyMgSG93IGl0IHdvcmtzOgoKMS4gIFRoZSB3b3JrZmxv
+dyBzdGFydHMgd2l0aCB0aGUgIlJlYWQgQmluYXJ5IEZpbGUiIG5vZGUsIHdo
+aWNoIHJlYWRzIHRoZSBjb250ZW50IG9mIHRoZSAic3ByZWFkc2hlZXQueGxz
+IiBmaWxlIGZyb20gdGhlIG44biBpbnN0YW5jZSBkaXNrIChvciBtb3VudGVk
+IHZvbHVtZSkuCjIuICBUaGUgIlNwcmVhZHNoZWV0IEZpbGUxIiBub2RlIHBh
+cnNlcyB0aGUgYmluYXJ5IGRhdGEgZnJvbSB0aGUgLnhscyBmaWxlIGludG8g
+YSBzdHJ1Y3R1cmVkIGZvcm1hdCB0aGF0IG44biBjYW4gd29yayB3aXRoLgoz
+LiAgVGhlICJJbnNlcnQgUm93czEiIG5vZGUgdGFrZXMgdGhlIGRhdGEgZXh0
+cmFjdGVkIGZyb20gdGhlIHNwcmVhZHNoZWV0IGFuZCBpbnNlcnRzIGl0IGFz
+IG5ldyByb3dzIGludG8gdGhlICJwcm9kdWN0IiB0YWJsZSBpbiBhIFBvc3Rn
+cmVTUUwgZGF0YWJhc2UuIFRoZSBub2RlIGlzIGNvbmZpZ3VyZWQgdG8gcG9w
+dWxhdGUgdGhlICJuYW1lIiBhbmQgImVhbiIgY29sdW1ucyBvZiB0aGUgInBy
+b2R1Y3QiIHRhYmxlIHVzaW5nIHRoZSBjb3JyZXNwb25kaW5nIGRhdGEgZnJv
+bSB0aGUgc3ByZWFkc2hlZXQuIFRoZSBQb3N0Z3JlU1FMIGNvbm5lY3Rpb24g
+aXMgZXN0YWJsaXNoZWQgdXNpbmcgdGhlICJwb3N0Z3JlcyIgY3JlZGVudGlh
+bHMuCgojIyBTZXJ2aWNlczoKCiogICAqKlBvc3RncmVTUUw6KiogVGhlIHdv
+cmtmbG93IGludGVyYWN0cyB3aXRoIGEgUG9zdGdyZVNRTCBkYXRhYmFzZSB0
+byBpbnNlcnQgdGhlIGRhdGEuCgojIyBIYXNodGFnczoKCiNuOG4gI2F1dG9t
+YXRpb24gI2RhdGFiYXNlICNwb3N0Z3JlcyAjc3ByZWFkc2hlZXQgI2RhdGFp
+bXBvcnQK
