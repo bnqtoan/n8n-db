@@ -1,26 +1,35 @@
-# French Text to English Audio
-
-## Use cases:
-
-- **Language Learning:** Translate French text into English audio to help language learners improve their listening comprehension and pronunciation.
-- **Content Localization:** Convert French articles, blog posts, or documents into English audio for a wider audience.
-- **Accessibility:** Make French content accessible to individuals who prefer listening to reading.
-
-## How it works:
-
-1.  **Manual Trigger:** The workflow starts when you manually execute it.
-2.  **Set ElevenLabs voice ID and text:** This node sets the ElevenLabs voice ID and the French text that will be translated to speech.
-3.  **Generate French Audio:** The workflow calls the ElevenLabs API to convert the French text into an audio file using the specified voice ID and saves it as binary data.
-4.  **Add Filename:** Adds the filename `audio.mp3` to the binary data.
-5.  **Transcribe audio:** The workflow sends the audio file to OpenAI's transcription service to convert the audio back into text.
-6.  **Translate Text to English:** The workflow uses an OpenAI Language Model to translate the transcribed French text into English.
-7.  **Translate English text to speech:** The workflow calls the ElevenLabs API again, this time converting the translated English text into an audio file using the same voice ID.
-
-## Services:
-
--   **ElevenLabs:** Text-to-speech service for generating audio from text.
--   **OpenAI:** Used for both audio transcription (Whisper) and text translation.
-
-## Hashtags:
-
-#n8n #automation #translation #elevenlabs #openai
+IyBGcmVuY2ggVGV4dCB0byBFbmdsaXNoIEF1ZGlvCgojIyBVc2UgY2FzZXM6
+CgotICoqTGFuZ3VhZ2UgTGVhcm5pbmc6KiogVHJhbnNsYXRlIEZyZW5jaCB0
+ZXh0IGludG8gRW5nbGlzaCBhdWRpbyB0byBoZWxwIGxhbmd1YWdlIGxlYXJu
+ZXJzIGltcHJvdmUgdGhlaXIgbGlzdGVuaW5nIGNvbXByZWhlbnNpb24gYW5k
+IHByb251bmNpYXRpb24uCi0gKipDb250ZW50IExvY2FsaXphdGlvbjoqKiBD
+b252ZXJ0IEZyZW5jaCBhcnRpY2xlcywgYmxvZyBwb3N0cywgb3IgZG9jdW1l
+bnRzIGludG8gRW5nbGlzaCBhdWRpbyBmb3IgYSB3aWRlciBhdWRpZW5jZS4K
+LSAqKkFjY2Vzc2liaWxpdHk6KiogTWFrZSBGcmVuY2ggY29udGVudCBhY2Nl
+c3NpYmxlIHRvIGluZGl2aWR1YWxzIHdobyBwcmVmZXIgbGlzdGVuaW5nIHRv
+IHJlYWRpbmcuCgojIyBIb3cgaXQgd29ya3M6CgoxLiAgKipNYW51YWwgVHJp
+Z2dlcjoqKiBUaGUgd29ya2Zsb3cgc3RhcnRzIHdoZW4geW91IG1hbnVhbGx5
+IGV4ZWN1dGUgaXQuCjIuICAqKlNldCBFbGV2ZW5MYWJzIHZvaWNlIElEIGFu
+ZCB0ZXh0OioqIFRoaXMgbm9kZSBzZXRzIHRoZSBFbGV2ZW5MYWJzIHZvaWNl
+IElEIGFuZCB0aGUgRnJlbmNoIHRleHQgdGhhdCB3aWxsIGJlIHRyYW5zbGF0
+ZWQgdG8gc3BlZWNoLgozLiAgKipHZW5lcmF0ZSBGcmVuY2ggQXVkaW86Kiog
+VGhlIHdvcmtmbG93IGNhbGxzIHRoZSBFbGV2ZW5MYWJzIEFQSSB0byBjb252
+ZXJ0IHRoZSBGcmVuY2ggdGV4dCBpbnRvIGFuIGF1ZGlvIGZpbGUgdXNpbmcg
+dGhlIHNwZWNpZmllZCB2b2ljZSBJRCBhbmQgc2F2ZXMgaXQgYXMgYmluYXJ5
+IGRhdGEuCjQuICAqKkFkZCBGaWxlbmFtZToqKiBBZGRzIHRoZSBmaWxlbmFt
+ZSBgYXVkaW8ubXAzYCB0byB0aGUgYmluYXJ5IGRhdGEuCjUuICAqKlRyYW5z
+Y3JpYmUgYXVkaW86KiogVGhlIHdvcmtmbG93IHNlbmRzIHRoZSBhdWRpbyBm
+aWxlIHRvIE9wZW5BSSdzIHRyYW5zY3JpcHRpb24gc2VydmljZSB0byBjb252
+ZXJ0IHRoZSBhdWRpbyBiYWNrIGludG8gdGV4dC4KNi4gICoqVHJhbnNsYXRl
+IFRleHQgdG8gRW5nbGlzaDoqKiBUaGUgd29ya2Zsb3cgdXNlcyBhbiBPcGVu
+QUkgTGFuZ3VhZ2UgTW9kZWwgdG8gdHJhbnNsYXRlIHRoZSB0cmFuc2NyaWJl
+ZCBGcmVuY2ggdGV4dCBpbnRvIEVuZ2xpc2guCjcuICAqKlRyYW5zbGF0ZSBF
+bmdsaXNoIHRleHQgdG8gc3BlZWNoOioqIFRoZSB3b3JrZmxvdyBjYWxscyB0
+aGUgRWxldmVuTGFicyBBUEkgYWdhaW4sIHRoaXMgdGltZSBjb252ZXJ0aW5n
+IHRoZSB0cmFuc2xhdGVkIEVuZ2xpc2ggdGV4dCBpbnRvIGFuIGF1ZGlvIGZp
+bGUgdXNpbmcgdGhlIHNhbWUgdm9pY2UgSUQuCgojIyBTZXJ2aWNlczoKCi0g
+ICAqKkVsZXZlbkxhYnM6KiogVGV4dC10by1zcGVlY2ggc2VydmljZSBmb3Ig
+Z2VuZXJhdGluZyBhdWRpbyBmcm9tIHRleHQuCi0gICAqKk9wZW5BSToqKiBV
+c2VkIGZvciBib3RoIGF1ZGlvIHRyYW5zY3JpcHRpb24gKFdoaXNwZXIpIGFu
+ZCB0ZXh0IHRyYW5zbGF0aW9uLgoKIyMgSGFzaHRhZ3M6CgojbjhuICNhdXRv
+bWF0aW9uICN0cmFuc2xhdGlvbiAjZWxldmVubGFicyAjb3BlbmFpCg==
