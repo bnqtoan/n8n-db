@@ -1,23 +1,29 @@
-## n8n Workflow: Get Current Weather Data for a City
-
-This workflow retrieves and displays the current weather information for a specified city using the OpenWeatherMap API.
-
-### Use cases:
-
-*   **Personal Weather Updates:** Quickly check the current weather conditions in a specific city of interest.
-*   **Dashboard Integration:** Integrate the weather data into a personal dashboard or monitoring system.
-*   **Smart Home Automation:** Use the weather data as a trigger for smart home actions (e.g., closing windows if it starts raining).
-
-### How it works:
-
-1.  **Manual Trigger:** The workflow starts when the "On clicking 'execute'" node is manually triggered within the n8n interface.
-2.  **OpenWeatherMap API Call:** The "OpenWeatherMap" node then uses the OpenWeatherMap API to retrieve the current weather data for "berlin,de".  The workflow requires valid OpenWeatherMap API credentials to function correctly.
-3.  **Output:** The workflow outputs the weather information received from the API. This data can be further processed or displayed using other n8n nodes (not shown in the current workflow, but could include things like saving to a Google Sheet, sending a Slack message, etc.)
-
-### Services:
-
-*   OpenWeatherMap API
-
-### Hashtags:
-
-#n8n #automation #weather #openweathermap #api
+IyMgbjhuIFdvcmtmbG93OiBHZXQgQ3VycmVudCBXZWF0aGVyIERhdGEgZm9y
+IGEgQ2l0eQoKVGhpcyB3b3JrZmxvdyByZXRyaWV2ZXMgYW5kIGRpc3BsYXlz
+IHRoZSBjdXJyZW50IHdlYXRoZXIgaW5mb3JtYXRpb24gZm9yIGEgc3BlY2lm
+aWVkIGNpdHkgdXNpbmcgdGhlIE9wZW5XZWF0aGVyTWFwIEFQSS4KCiMjIyBV
+c2UgY2FzZXM6CgoqICAgKipQZXJzb25hbCBXZWF0aGVyIFVwZGF0ZXM6Kiog
+UXVpY2tseSBjaGVjayB0aGUgY3VycmVudCB3ZWF0aGVyIGNvbmRpdGlvbnMg
+aW4gYSBzcGVjaWZpYyBjaXR5IG9mIGludGVyZXN0LgoqICAgKipEYXNoYm9h
+cmQgSW50ZWdyYXRpb246KiogSW50ZWdyYXRlIHRoZSB3ZWF0aGVyIGRhdGEg
+aW50byBhIHBlcnNvbmFsIGRhc2hib2FyZCBvciBtb25pdG9yaW5nIHN5c3Rl
+bS4KKiAgICoqU21hcnQgSG9tZSBBdXRvbWF0aW9uOioqIFVzZSB0aGUgd2Vh
+dGhlciBkYXRhIGFzIGEgdHJpZ2dlciBmb3Igc21hcnQgaG9tZSBhY3Rpb25z
+IChlLmcuLCBjbG9zaW5nIHdpbmRvd3MgaWYgaXQgc3RhcnRzIHJhaW5pbmcp
+LgoKIyMjIEhvdyBpdCB3b3JrczoKCjEuICAqKk1hbnVhbCBUcmlnZ2VyOioq
+IFRoZSB3b3JrZmxvdyBzdGFydHMgd2hlbiB0aGUgIk9uIGNsaWNraW5nICdl
+eGVjdXRlJyIgbm9kZSBpcyBtYW51YWxseSB0cmlnZ2VyZWQgd2l0aGluIHRo
+ZSBuOG4gaW50ZXJmYWNlLgoyLiAgKipPcGVuV2VhdGhlck1hcCBBUEkgQ2Fs
+bDoqKiBUaGUgIk9wZW5XZWF0aGVyTWFwIiBub2RlIHRoZW4gdXNlcyB0aGUg
+T3BlbldlYXRoZXJNYXAgQVBJIHRvIHJldHJpZXZlIHRoZSBjdXJyZW50IHdl
+YXRoZXIgZGF0YSBmb3IgImJlcmxpbixkZSIuICBUaGUgd29ya2Zsb3cgcmVx
+dWlyZXMgdmFsaWQgT3BlbldlYXRoZXJNYXAgQVBJIGNyZWRlbnRpYWxzIHRv
+IGZ1bmN0aW9uIGNvcnJlY3RseS4KMy4gICoqT3V0cHV0OioqIFRoZSB3b3Jr
+ZmxvdyBvdXRwdXRzIHRoZSB3ZWF0aGVyIGluZm9ybWF0aW9uIHJlY2VpdmVk
+IGZyb20gdGhlIEFQSS4gVGhpcyBkYXRhIGNhbiBiZSBmdXJ0aGVyIHByb2Nl
+c3NlZCBvciBkaXNwbGF5ZWQgdXNpbmcgb3RoZXIgbjhuIG5vZGVzIChub3Qg
+c2hvd24gaW4gdGhlIGN1cnJlbnQgd29ya2Zsb3csIGJ1dCBjb3VsZCBpbmNs
+dWRlIHRoaW5ncyBsaWtlIHNhdmluZyB0byBhIEdvb2dsZSBTaGVldCwgc2Vu
+ZGluZyBhIFNsYWNrIG1lc3NhZ2UsIGV0Yy4pCgojIyMgU2VydmljZXM6Cgoq
+ICAgT3BlbldlYXRoZXJNYXAgQVBJCgojIyMgSGFzaHRhZ3M6CgojbjhuICNh
+dXRvbWF0aW9uICN3ZWF0aGVyICNvcGVud2VhdGhlcm1hcCAjYXBpCg==
