@@ -1,29 +1,40 @@
-# LinkedIn Lead Processing and CRM Update Workflow
-
-## Use Cases  
-1. **Automated LinkedIn Lead Processing**: Capture LinkedIn profile data via webhooks and process it to determine user relationships.  
-2. **CRM Integration**: Update Google Sheets with lead status (e.g., "invited" or "contacted") based on LinkedIn interactions.  
-3. **Conditional Notifications**: Trigger follow-up actions (e.g., sending messages or alerts) when specific criteria are met (e.g., a user is not a connection).  
-
-## How It Works  
-1. **Webhook Trigger**: The workflow starts with a webhook (e.g., from LinkedIn) that captures user data.  
-2. **Data Extraction**: Extracts LinkedIn profile information (e.g., username, connection status) from incoming data.  
-3. **Condition Checks**: Uses `If` nodes to verify conditions (e.g., `is_relationship` flag) to determine if the user is a LinkedIn connection.  
-4. **Google Sheets Integration**:  
-   - **Read/Write Data**: Fetches or updates lead status in Google Sheets (e.g., "invited" or "contacted").  
-   - **CRM Sync**: Updates the CRM with new lead data or status changes.  
-5. **Action Triggers**:  
-   - Sends a contact request or notification if the user is not a connection.  
-   - Triggers a follow-up workflow (e.g., sending an automated "icebreaker" message).  
-
-## Services  
-- **LinkedIn** (via HTTP requests for profile data).  
-- **Google Sheets** (CRM and data storage).  
-- **Webhooks** (triggering workflows and receiving data).  
-
-## Hashtags  
-#n8n #automation #workflow #CRM #LinkedIn  
-
----
-
-**Note**: The workflow includes placeholder nodes (e.g., "Sticky Notes") and conditional branches that may require customization. Ensure Google Sheets API and LinkedIn webhook configurations are properly set up for full functionality.
+IyBMaW5rZWRJbiBMZWFkIFByb2Nlc3NpbmcgYW5kIENSTSBVcGRhdGUgV29y
+a2Zsb3cKCiMjIFVzZSBDYXNlcyAgCjEuICoqQXV0b21hdGVkIExpbmtlZElu
+IExlYWQgUHJvY2Vzc2luZyoqOiBDYXB0dXJlIExpbmtlZEluIHByb2ZpbGUg
+ZGF0YSB2aWEgd2ViaG9va3MgYW5kIHByb2Nlc3MgaXQgdG8gZGV0ZXJtaW5l
+IHVzZXIgcmVsYXRpb25zaGlwcy4gIAoyLiAqKkNSTSBJbnRlZ3JhdGlvbioq
+OiBVcGRhdGUgR29vZ2xlIFNoZWV0cyB3aXRoIGxlYWQgc3RhdHVzIChlLmcu
+LCAiaW52aXRlZCIgb3IgImNvbnRhY3RlZCIpIGJhc2VkIG9uIExpbmtlZElu
+IGludGVyYWN0aW9ucy4gIAozLiAqKkNvbmRpdGlvbmFsIE5vdGlmaWNhdGlv
+bnMqKjogVHJpZ2dlciBmb2xsb3ctdXAgYWN0aW9ucyAoZS5nLiwgc2VuZGlu
+ZyBtZXNzYWdlcyBvciBhbGVydHMpIHdoZW4gc3BlY2lmaWMgY3JpdGVyaWEg
+YXJlIG1ldCAoZS5nLiwgYSB1c2VyIGlzIG5vdCBhIGNvbm5lY3Rpb24pLiAg
+CgojIyBIb3cgSXQgV29ya3MgIAoxLiAqKldlYmhvb2sgVHJpZ2dlcioqOiBU
+aGUgd29ya2Zsb3cgc3RhcnRzIHdpdGggYSB3ZWJob29rIChlLmcuLCBmcm9t
+IExpbmtlZEluKSB0aGF0IGNhcHR1cmVzIHVzZXIgZGF0YS4gIAoyLiAqKkRh
+dGEgRXh0cmFjdGlvbioqOiBFeHRyYWN0cyBMaW5rZWRJbiBwcm9maWxlIGlu
+Zm9ybWF0aW9uIChlLmcuLCB1c2VybmFtZSwgY29ubmVjdGlvbiBzdGF0dXMp
+IGZyb20gaW5jb21pbmcgZGF0YS4gIAozLiAqKkNvbmRpdGlvbiBDaGVja3Mq
+KjogVXNlcyBgSWZgIG5vZGVzIHRvIHZlcmlmeSBjb25kaXRpb25zIChlLmcu
+LCBgaXNfcmVsYXRpb25zaGlwYCBmbGFnKSB0byBkZXRlcm1pbmUgaWYgdGhl
+IHVzZXIgaXMgYSBMaW5rZWRJbiBjb25uZWN0aW9uLiAgCjQuICoqR29vZ2xl
+IFNoZWV0cyBJbnRlZ3JhdGlvbioqOiAgCiAgIC0gKipSZWFkL1dyaXRlIERh
+dGEqKjogRmV0Y2hlcyBvciB1cGRhdGVzIGxlYWQgc3RhdHVzIGluIEdvb2ds
+ZSBTaGVldHMgKGUuZy4sICJpbnZpdGVkIiBvciAiY29udGFjdGVkIikuICAK
+ICAgLSAqKkNSTSBTeW5jKio6IFVwZGF0ZXMgdGhlIENSTSB3aXRoIG5ldyBs
+ZWFkIGRhdGEgb3Igc3RhdHVzIGNoYW5nZXMuICAKNS4gKipBY3Rpb24gVHJp
+Z2dlcnMqKjogIAogICAtIFNlbmRzIGEgY29udGFjdCByZXF1ZXN0IG9yIG5v
+dGlmaWNhdGlvbiBpZiB0aGUgdXNlciBpcyBub3QgYSBjb25uZWN0aW9uLiAg
+CiAgIC0gVHJpZ2dlcnMgYSBmb2xsb3ctdXAgd29ya2Zsb3cgKGUuZy4sIHNl
+bmRpbmcgYW4gYXV0b21hdGVkICJpY2VicmVha2VyIiBtZXNzYWdlKS4gIAoK
+IyMgU2VydmljZXMgIAotICoqTGlua2VkSW4qKiAodmlhIEhUVFAgcmVxdWVz
+dHMgZm9yIHByb2ZpbGUgZGF0YSkuICAKLSAqKkdvb2dsZSBTaGVldHMqKiAo
+Q1JNIGFuZCBkYXRhIHN0b3JhZ2UpLiAgCi0gKipXZWJob29rcyoqICh0cmln
+Z2VyaW5nIHdvcmtmbG93cyBhbmQgcmVjZWl2aW5nIGRhdGEpLiAgCgojIyBI
+YXNodGFncyAgCiNuOG4gI2F1dG9tYXRpb24gI3dvcmtmbG93ICNDUk0gI0xp
+bmtlZEluICAKCi0tLQoKKipOb3RlKio6IFRoZSB3b3JrZmxvdyBpbmNsdWRl
+cyBwbGFjZWhvbGRlciBub2RlcyAoZS5nLiwgIlN0aWNreSBOb3RlcyIpIGFu
+ZCBjb25kaXRpb25hbCBicmFuY2hlcyB0aGF0IG1heSByZXF1aXJlIGN1c3Rv
+bWl6YXRpb24uIEVuc3VyZSBHb29nbGUgU2hlZXRzIEFQSSBhbmQgTGlua2Vk
+SW4gd2ViaG9vayBjb25maWd1cmF0aW9ucyBhcmUgcHJvcGVybHkgc2V0IHVw
+IGZvciBmdWxsIGZ1bmN0aW9uYWxpdHku
