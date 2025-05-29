@@ -1,45 +1,49 @@
-# Email Management & Response Automation Workflow
-
-## Use Cases
-1. **Automated Email Prioritization** - Automatically categorize incoming emails into spam, important, personal, and other categories using AI analysis
-2. **Smart Response Handling** - Generate draft replies for priority emails and trigger notifications for urgent requests requiring immediate attention
-3. **Workflow Integration** - Connect email management with calendar systems and messaging platforms for unified task handling
-
-## How it Works
-1. **Email Ingestion** (Gmail Trigger node) - Monitors Gmail inbox for new messages
-2. **AI Analysis** (Azure OpenAI + Sentiment Analysis nodes):
-   - Classifies emails into categories: spam, important, personal, promotion, etc.
-   - Detects urgency ("needs reply", "call requests") using sentiment analysis
-3. **Action Routing**:
-   - High-priority emails trigger draft reply generation (Draft Reply node)
-   - Urgent requests notify via Telegram
-   - Categorized emails sorted into appropriate labels/folders
-4. **Integration** (Partial Implementation):
-   - Google Calendar integration (node present but not fully connected)
-   - Telegram notifications for urgent items
-
-## Services
-- **Gmail** (Email processing)
-- **Microsoft Azure OpenAI** (Natural Language Processing)
-- **Google Calendar** (Scheduling - partially implemented)
-- **Telegram** (Notifications)
-- **JSON Schema** (Data structuring)
-- **Email Classification System** (Custom logic for labels)
-
-## Potential Issues
-⚠️ **Missing Configurations**:
-- Google Calendar node not connected in current workflow
-- Multiple "sticky note" nodes with no operational purpose
-- "No Operation" node present in workflow
-- Unclear credential setup for Gmail/OpenAI nodes
-
-## Hashtags
-#EmailAutomation #AIClassification #GmailWorkflow #AzureAI #ProductivityTools
-```
-
-**Recommendations for Improvement**:
-1. Add credential validation for Gmail/OpenAI services
-2. Complete Google Calendar integration for meeting scheduling
-3. Remove non-functional "sticky note" placeholder nodes
-4. Implement error handling for failed email processing
-5. Add documentation for custom JSON schema usage in replies
+IyBFbWFpbCBNYW5hZ2VtZW50ICYgUmVzcG9uc2UgQXV0b21hdGlvbiBXb3Jr
+ZmxvdwoKIyMgVXNlIENhc2VzCjEuICoqQXV0b21hdGVkIEVtYWlsIFByaW9y
+aXRpemF0aW9uKiogLSBBdXRvbWF0aWNhbGx5IGNhdGVnb3JpemUgaW5jb21p
+bmcgZW1haWxzIGludG8gc3BhbSwgaW1wb3J0YW50LCBwZXJzb25hbCwgYW5k
+IG90aGVyIGNhdGVnb3JpZXMgdXNpbmcgQUkgYW5hbHlzaXMKMi4gKipTbWFy
+dCBSZXNwb25zZSBIYW5kbGluZyoqIC0gR2VuZXJhdGUgZHJhZnQgcmVwbGll
+cyBmb3IgcHJpb3JpdHkgZW1haWxzIGFuZCB0cmlnZ2VyIG5vdGlmaWNhdGlv
+bnMgZm9yIHVyZ2VudCByZXF1ZXN0cyByZXF1aXJpbmcgaW1tZWRpYXRlIGF0
+dGVudGlvbgozLiAqKldvcmtmbG93IEludGVncmF0aW9uKiogLSBDb25uZWN0
+IGVtYWlsIG1hbmFnZW1lbnQgd2l0aCBjYWxlbmRhciBzeXN0ZW1zIGFuZCBt
+ZXNzYWdpbmcgcGxhdGZvcm1zIGZvciB1bmlmaWVkIHRhc2sgaGFuZGxpbmcK
+CiMjIEhvdyBpdCBXb3JrcwoxLiAqKkVtYWlsIEluZ2VzdGlvbioqIChHbWFp
+bCBUcmlnZ2VyIG5vZGUpIC0gTW9uaXRvcnMgR21haWwgaW5ib3ggZm9yIG5l
+dyBtZXNzYWdlcwoyLiAqKkFJIEFuYWx5c2lzKiogKEF6dXJlIE9wZW5BSSAr
+IFNlbnRpbWVudCBBbmFseXNpcyBub2Rlcyk6CiAgIC0gQ2xhc3NpZmllcyBl
+bWFpbHMgaW50byBjYXRlZ29yaWVzOiBzcGFtLCBpbXBvcnRhbnQsIHBlcnNv
+bmFsLCBwcm9tb3Rpb24sIGV0Yy4KICAgLSBEZXRlY3RzIHVyZ2VuY3kgKCJu
+ZWVkcyByZXBseSIsICJjYWxsIHJlcXVlc3RzIikgdXNpbmcgc2VudGltZW50
+IGFuYWx5c2lzCjMuICoqQWN0aW9uIFJvdXRpbmcqKjoKICAgLSBIaWdoLXBy
+aW9yaXR5IGVtYWlscyB0cmlnZ2VyIGRyYWZ0IHJlcGx5IGdlbmVyYXRpb24g
+KERyYWZ0IFJlcGx5IG5vZGUpCiAgIC0gVXJnZW50IHJlcXVlc3RzIG5vdGlm
+eSB2aWEgVGVsZWdyYW0KICAgLSBDYXRlZ29yaXplZCBlbWFpbHMgc29ydGVk
+IGludG8gYXBwcm9wcmlhdGUgbGFiZWxzL2ZvbGRlcnMKNC4gKipJbnRlZ3Jh
+dGlvbioqIChQYXJ0aWFsIEltcGxlbWVudGF0aW9uKToKICAgLSBHb29nbGUg
+Q2FsZW5kYXIgaW50ZWdyYXRpb24gKG5vZGUgcHJlc2VudCBidXQgbm90IGZ1
+bGx5IGNvbm5lY3RlZCkKICAgLSBUZWxlZ3JhbSBub3RpZmljYXRpb25zIGZv
+ciB1cmdlbnQgaXRlbXMKCiMjIFNlcnZpY2VzCi0gKipHbWFpbCoqIChFbWFp
+bCBwcm9jZXNzaW5nKQotICoqTWljcm9zb2Z0IEF6dXJlIE9wZW5BSSoqIChO
+YXR1cmFsIExhbmd1YWdlIFByb2Nlc3NpbmcpCi0gKipHb29nbGUgQ2FsZW5k
+YXIqKiAoU2NoZWR1bGluZyAtIHBhcnRpYWxseSBpbXBsZW1lbnRlZCkKLSAq
+KlRlbGVncmFtKiogKE5vdGlmaWNhdGlvbnMpCi0gKipKU09OIFNjaGVtYSoq
+IChEYXRhIHN0cnVjdHVyaW5nKQotICoqRW1haWwgQ2xhc3NpZmljYXRpb24g
+U3lzdGVtKiogKEN1c3RvbSBsb2dpYyBmb3IgbGFiZWxzKQoKIyMgUG90ZW50
+aWFsIElzc3VlcwrimqDvuI8gKipNaXNzaW5nIENvbmZpZ3VyYXRpb25zKio6
+Ci0gR29vZ2xlIENhbGVuZGFyIG5vZGUgbm90IGNvbm5lY3RlZCBpbiBjdXJy
+ZW50IHdvcmtmbG93Ci0gTXVsdGlwbGUgInN0aWNreSBub3RlIiBub2RlcyB3
+aXRoIG5vIG9wZXJhdGlvbmFsIHB1cnBvc2UKLSAiTm8gT3BlcmF0aW9uIiBu
+b2RlIHByZXNlbnQgaW4gd29ya2Zsb3cKLSBVbmNsZWFyIGNyZWRlbnRpYWwg
+c2V0dXAgZm9yIEdtYWlsL09wZW5BSSBub2RlcwoKIyMgSGFzaHRhZ3MKI0Vt
+YWlsQXV0b21hdGlvbiAjQUlDbGFzc2lmaWNhdGlvbiAjR21haWxXb3JrZmxv
+dyAjQXp1cmVBSSAjUHJvZHVjdGl2aXR5VG9vbHMKYGBgCgoqKlJlY29tbWVu
+ZGF0aW9ucyBmb3IgSW1wcm92ZW1lbnQqKjoKMS4gQWRkIGNyZWRlbnRpYWwg
+dmFsaWRhdGlvbiBmb3IgR21haWwvT3BlbkFJIHNlcnZpY2VzCjIuIENvbXBs
+ZXRlIEdvb2dsZSBDYWxlbmRhciBpbnRlZ3JhdGlvbiBmb3IgbWVldGluZyBz
+Y2hlZHVsaW5nCjMuIFJlbW92ZSBub24tZnVuY3Rpb25hbCAic3RpY2t5IG5v
+dGUiIHBsYWNlaG9sZGVyIG5vZGVzCjQuIEltcGxlbWVudCBlcnJvciBoYW5k
+bGluZyBmb3IgZmFpbGVkIGVtYWlsIHByb2Nlc3NpbmcKNS4gQWRkIGRvY3Vt
+ZW50YXRpb24gZm9yIGN1c3RvbSBKU09OIHNjaGVtYSB1c2FnZSBpbiByZXBs
+aWVz
