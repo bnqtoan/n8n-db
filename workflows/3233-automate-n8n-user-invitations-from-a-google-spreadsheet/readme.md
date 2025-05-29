@@ -1,31 +1,40 @@
-# User Synchronization between Google Sheets and n8n
-
-**Use Cases**:
-1. **Automated User Onboarding**: Sync new users from a Google Sheet to your n8n instance automatically when new entries are added.
-2. **User Management**: Maintain a centralized user database in Google Sheets and ensure it matches your n8n user directory.
-3. **Bulk Invitations**: Send invitations to multiple users in bulk by processing a spreadsheet of email addresses.
-
-**How it Works**:
-1. **Data Collection**:
-   - The workflow starts by fetching existing users from n8n using an HTTP request node (`Get all User`).
-   - Simultaneously, it retrieves user data from a Google Sheet (`Get all row`).
-2. **Data Processing**:
-   - A merge node (`Get non-user`) compares the two datasets to identify users present in the Google Sheet but not in nw.n.
-   - A code node (`Combine all paginated results`) aggregates paginated responses from the n8n API.
-3. **User Creation**:
-   - Validated new users are formatted into the required structure using a set node (`Create users list`).
-   - An HTTP request node (`Invite User`) sends invitations to new users via n8n's API.
-4. **Automation**:
-   - The workflow can be triggered manually or scheduled to run periodically (`Schedule Trigger`).
-
-**Services**:
-- **Google Sheets**: Stores and provides user data from a spreadsheet.
-- **n8n API**: Handles user management operations (fetching existing users and creating new ones).
-
-**Hashtags**:
-#n8n #automation #user-management #google-sheets #workflow
-```
-
-**Notes**:
-- The workflow contains references to both n8n and Squarespace APIs in some nodes, but the core functionality uses **Google Sheets** and **n8n API**.
-- Ensure your Google Sheet has columns matching the expected format (e.g., `Email Address`, `Name`).
+IyBVc2VyIFN5bmNocm9uaXphdGlvbiBiZXR3ZWVuIEdvb2dsZSBTaGVldHMg
+YW5kIG44bgoKKipVc2UgQ2FzZXMqKjoKMS4gKipBdXRvbWF0ZWQgVXNlciBP
+bmJvYXJkaW5nKio6IFN5bmMgbmV3IHVzZXJzIGZyb20gYSBHb29nbGUgU2hl
+ZXQgdG8geW91ciBuOG4gaW5zdGFuY2UgYXV0b21hdGljYWxseSB3aGVuIG5l
+dyBlbnRyaWVzIGFyZSBhZGRlZC4KMi4gKipVc2VyIE1hbmFnZW1lbnQqKjog
+TWFpbnRhaW4gYSBjZW50cmFsaXplZCB1c2VyIGRhdGFiYXNlIGluIEdvb2ds
+ZSBTaGVldHMgYW5kIGVuc3VyZSBpdCBtYXRjaGVzIHlvdXIgbjhuIHVzZXIg
+ZGlyZWN0b3J5LgozLiAqKkJ1bGsgSW52aXRhdGlvbnMqKjogU2VuZCBpbnZp
+dGF0aW9ucyB0byBtdWx0aXBsZSB1c2VycyBpbiBidWxrIGJ5IHByb2Nlc3Np
+bmcgYSBzcHJlYWRzaGVldCBvZiBlbWFpbCBhZGRyZXNzZXMuCgoqKkhvdyBp
+dCBXb3JrcyoqOgoxLiAqKkRhdGEgQ29sbGVjdGlvbioqOgogICAtIFRoZSB3
+b3JrZmxvdyBzdGFydHMgYnkgZmV0Y2hpbmcgZXhpc3RpbmcgdXNlcnMgZnJv
+bSBuOG4gdXNpbmcgYW4gSFRUUCByZXF1ZXN0IG5vZGUgKGBHZXQgYWxsIFVz
+ZXJgKS4KICAgLSBTaW11bHRhbmVvdXNseSwgaXQgcmV0cmlldmVzIHVzZXIg
+ZGF0YSBmcm9tIGEgR29vZ2xlIFNoZWV0IChgR2V0IGFsbCByb3dgKS4KMi4g
+KipEYXRhIFByb2Nlc3NpbmcqKjoKICAgLSBBIG1lcmdlIG5vZGUgKGBHZXQg
+bm9uLXVzZXJgKSBjb21wYXJlcyB0aGUgdHdvIGRhdGFzZXRzIHRvIGlkZW50
+aWZ5IHVzZXJzIHByZXNlbnQgaW4gdGhlIEdvb2dsZSBTaGVldCBidXQgbm90
+IGluIG53Lm4uCiAgIC0gQSBjb2RlIG5vZGUgKGBDb21iaW5lIGFsbCBwYWdp
+bmF0ZWQgcmVzdWx0c2ApIGFnZ3JlZ2F0ZXMgcGFnaW5hdGVkIHJlc3BvbnNl
+cyBmcm9tIHRoZSBuOG4gQVBJLgozLiAqKlVzZXIgQ3JlYXRpb24qKjoKICAg
+LSBWYWxpZGF0ZWQgbmV3IHVzZXJzIGFyZSBmb3JtYXR0ZWQgaW50byB0aGUg
+cmVxdWlyZWQgc3RydWN0dXJlIHVzaW5nIGEgc2V0IG5vZGUgKGBDcmVhdGUg
+dXNlcnMgbGlzdGApLgogICAtIEFuIEhUVFAgcmVxdWVzdCBub2RlIChgSW52
+aXRlIFVzZXJgKSBzZW5kcyBpbnZpdGF0aW9ucyB0byBuZXcgdXNlcnMgdmlh
+IG44bidzIEFQSS4KNC4gKipBdXRvbWF0aW9uKio6CiAgIC0gVGhlIHdvcmtm
+bG93IGNhbiBiZSB0cmlnZ2VyZWQgbWFudWFsbHkgb3Igc2NoZWR1bGVkIHRv
+IHJ1biBwZXJpb2RpY2FsbHkgKGBTY2hlZHVsZSBUcmlnZ2VyYCkuCgoqKlNl
+cnZpY2VzKio6Ci0gKipHb29nbGUgU2hlZXRzKio6IFN0b3JlcyBhbmQgcHJv
+dmlkZXMgdXNlciBkYXRhIGZyb20gYSBzcHJlYWRzaGVldC4KLSAqKm44biBB
+UEkqKjogSGFuZGxlcyB1c2VyIG1hbmFnZW1lbnQgb3BlcmF0aW9ucyAoZmV0
+Y2hpbmcgZXhpc3RpbmcgdXNlcnMgYW5kIGNyZWF0aW5nIG5ldyBvbmVzKS4K
+CioqSGFzaHRhZ3MqKjoKI244biAjYXV0b21hdGlvbiAjdXNlci1tYW5hZ2Vt
+ZW50ICNnb29nbGUtc2hlZXRzICN3b3JrZmxvdwpgYGAKCioqTm90ZXMqKjoK
+LSBUaGUgd29ya2Zsb3cgY29udGFpbnMgcmVmZXJlbmNlcyB0byBib3RoIG44
+biBhbmQgU3F1YXJlc3BhY2UgQVBJcyBpbiBzb21lIG5vZGVzLCBidXQgdGhl
+IGNvcmUgZnVuY3Rpb25hbGl0eSB1c2VzICoqR29vZ2xlIFNoZWV0cyoqIGFu
+ZCAqKm44biBBUEkqKi4KLSBFbnN1cmUgeW91ciBHb29nbGUgU2hlZXQgaGFz
+IGNvbHVtbnMgbWF0Y2hpbmcgdGhlIGV4cGVjdGVkIGZvcm1hdCAoZS5nLiwg
+YEVtYWlsIEFkZHJlc3NgLCBgTmFtZWApLg==
