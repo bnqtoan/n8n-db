@@ -1,34 +1,37 @@
-# Reddit Brand Monitoring & Content Management Workflow
-
-## Use Cases
-1. **Automated brand mention tracking** - Monitor Reddit for mentions of your brand/product and analyze sentiment
-2. **Content moderation workflow** - Systematically process social media posts and maintain a clean brand presence
-3. **AI-powered content analysis** - Use language models to process user-generated content and generate insights
-
-## How it Works
-This workflow combines social media monitoring with AI analysis and database management:
-
-1. **Scheduled Trigger** initiates the process at specified intervals
-2. **Reddit Search** nodes scan for brand-related posts and comments
-3. **AI Processing** (OpenAI) analyzes content for sentiment/key insights
-4. **Deduplication System** checks for existing entries using Notion database
-5. **Automated Reporting** sends processed data to Notion for record-keeping
-6. **Error Handling** nodes manage misspelled brand mentions and duplicates
-
-Key nodes include:
-- Reddit search nodes for content collection
-- OpenAI language model for text analysis
-- Notion integration for data storage
-- Deduplication system with merge/exclusion logic
-
-## Services
-- **Reddit** (Social media platform)
-- **OpenAI** (Language model API)
-- **Notion** (Database/Workspace)
-- **Custom JSON Schema** (Data structuring)
-
-## Hashtags
-#n8n #automation #socialmediamonitoring #brandmanagement #workflowautomation
-```
-
-**Note:** The workflow contains some ambiguous connections between AI processing nodes. For optimal performance, you may need to clarify the exact data transformation steps between Reddit content collection and OpenAI analysis.
+IyBSZWRkaXQgQnJhbmQgTW9uaXRvcmluZyAmIENvbnRlbnQgTWFuYWdlbWVu
+dCBXb3JrZmxvdwoKIyMgVXNlIENhc2VzCjEuICoqQXV0b21hdGVkIGJyYW5k
+IG1lbnRpb24gdHJhY2tpbmcqKiAtIE1vbml0b3IgUmVkZGl0IGZvciBtZW50
+aW9ucyBvZiB5b3VyIGJyYW5kL3Byb2R1Y3QgYW5kIGFuYWx5emUgc2VudGlt
+ZW50CjIuICoqQ29udGVudCBtb2RlcmF0aW9uIHdvcmtmbG93KiogLSBTeXN0
+ZW1hdGljYWxseSBwcm9jZXNzIHNvY2lhbCBtZWRpYSBwb3N0cyBhbmQgbWFp
+bnRhaW4gYSBjbGVhbiBicmFuZCBwcmVzZW5jZQozLiAqKkFJLXBvd2VyZWQg
+Y29udGVudCBhbmFseXNpcyoqIC0gVXNlIGxhbmd1YWdlIG1vZGVscyB0byBw
+cm9jZXNzIHVzZXItZ2VuZXJhdGVkIGNvbnRlbnQgYW5kIGdlbmVyYXRlIGlu
+c2lnaHRzCgojIyBIb3cgaXQgV29ya3MKVGhpcyB3b3JrZmxvdyBjb21iaW5l
+cyBzb2NpYWwgbWVkaWEgbW9uaXRvcmluZyB3aXRoIEFJIGFuYWx5c2lzIGFu
+ZCBkYXRhYmFzZSBtYW5hZ2VtZW50OgoKMS4gKipTY2hlZHVsZWQgVHJpZ2dl
+cioqIGluaXRpYXRlcyB0aGUgcHJvY2VzcyBhdCBzcGVjaWZpZWQgaW50ZXJ2
+YWxzCjIuICoqUmVkZGl0IFNlYXJjaCoqIG5vZGVzIHNjYW4gZm9yIGJyYW5k
+LXJlbGF0ZWQgcG9zdHMgYW5kIGNvbW1lbnRzCjMuICoqQUkgUHJvY2Vzc2lu
+ZyoqIChPcGVuQUkpIGFuYWx5emVzIGNvbnRlbnQgZm9yIHNlbnRpbWVudC9r
+ZXkgaW5zaWdodHMKNC4gKipEZWR1cGxpY2F0aW9uIFN5c3RlbSoqIGNoZWNr
+cyBmb3IgZXhpc3RpbmcgZW50cmllcyB1c2luZyBOb3Rpb24gZGF0YWJhc2UK
+NS4gKipBdXRvbWF0ZWQgUmVwb3J0aW5nKiogc2VuZHMgcHJvY2Vzc2VkIGRh
+dGEgdG8gTm90aW9uIGZvciByZWNvcmQta2VlcGluZwo2LiAqKkVycm9yIEhh
+bmRsaW5nKiogbm9kZXMgbWFuYWdlIG1pc3NwZWxsZWQgYnJhbmQgbWVudGlv
+bnMgYW5kIGR1cGxpY2F0ZXMKCktleSBub2RlcyBpbmNsdWRlOgotIFJlZGRp
+dCBzZWFyY2ggbm9kZXMgZm9yIGNvbnRlbnQgY29sbGVjdGlvbgotIE9wZW5B
+SSBsYW5ndWFnZSBtb2RlbCBmb3IgdGV4dCBhbmFseXNpcwotIE5vdGlvbiBp
+bnRlZ3JhdGlvbiBmb3IgZGF0YSBzdG9yYWdlCi0gRGVkdXBsaWNhdGlvbiBz
+eXN0ZW0gd2l0aCBtZXJnZS9leGNsdXNpb24gbG9naWMKCiMjIFNlcnZpY2Vz
+Ci0gKipSZWRkaXQqKiAoU29jaWFsIG1lZGlhIHBsYXRmb3JtKQotICoqT3Bl
+bkFJKiogKExhbmd1YWdlIG1vZGVsIEFQSSkKLSAqKk5vdGlvbioqIChEYXRh
+YmFzZS9Xb3Jrc3BhY2UpCi0gKipDdXN0b20gSlNPTiBTY2hlbWEqKiAoRGF0
+YSBzdHJ1Y3R1cmluZykKCiMjIEhhc2h0YWdzCiNuOG4gI2F1dG9tYXRpb24g
+I3NvY2lhbG1lZGlhbW9uaXRvcmluZyAjYnJhbmRtYW5hZ2VtZW50ICN3b3Jr
+Zmxvd2F1dG9tYXRpb24KYGBgCgoqKk5vdGU6KiogVGhlIHdvcmtmbG93IGNv
+bnRhaW5zIHNvbWUgYW1iaWd1b3VzIGNvbm5lY3Rpb25zIGJldHdlZW4gQUkg
+cHJvY2Vzc2luZyBub2Rlcy4gRm9yIG9wdGltYWwgcGVyZm9ybWFuY2UsIHlv
+dSBtYXkgbmVlZCB0byBjbGFyaWZ5IHRoZSBleGFjdCBkYXRhIHRyYW5zZm9y
+bWF0aW9uIHN0ZXBzIGJldHdlZW4gUmVkZGl0IGNvbnRlbnQgY29sbGVjdGlv
+biBhbmQgT3BlbkFJIGFuYWx5c2lzLg==
