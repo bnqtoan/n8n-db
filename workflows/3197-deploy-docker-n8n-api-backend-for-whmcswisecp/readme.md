@@ -1,28 +1,41 @@
-# Docker Container Management and Deployment Workflow
-
-## Use Cases
-1. **Automated Docker Container Deployment**: Deploy and manage Docker containers via API requests with automated error handling for invalid domains or configuration issues.
-2. **Container Lifecycle Management**: Start/stop containers, mount/unmount storage volumes, and manage container permissions through a centralized API interface.
-3. **Infrastructure Monitoring**: Monitor container resource usage, network activity, and storage allocation through integrated monitoring nodes.
-
-## How It Works
-This workflow uses a webhook endpoint to receive API requests and executes Docker operations through SSH connections to a host server. Key components include:
-
-1. **Webhook Receiver**: Receives API requests containing Docker operation commands (start/stop/mount/configure)
-2. **Command Router**: Routes requests to specific handlers using switch nodes based on the operation type
-3. **SSH Executor**: Executes Docker commands on the target server using the SSH node with error handling
-4. Security Checks: Validates server domains and container configurations before executing operations
-5. **Status Monitoring**: Tracks container resource usage, network stats, and storage allocation through monitoring nodes
-
-## Services
-- **Docker Engine** (Container management)
-- **SSH Protocol** (Secure command execution)
-- **Webhook Service** (API endpoint handling)
-- **Linux Systemd** (Service management)
-- **Nginx** (Reverse proxy for containers)
-
-## Hashtags
-#n8n #docker #automation #devops #containers
-```
-
-*Note: This workflow appears to require access to Docker environments with SSH access and proper permissions for container management. Some node configurations suggest integration with specific infrastructure components that aren't fully detailed in the provided JSON.*
+IyBEb2NrZXIgQ29udGFpbmVyIE1hbmFnZW1lbnQgYW5kIERlcGxveW1lbnQg
+V29ya2Zsb3cKCiMjIFVzZSBDYXNlcwoxLiAqKkF1dG9tYXRlZCBEb2NrZXIg
+Q29udGFpbmVyIERlcGxveW1lbnQqKjogRGVwbG95IGFuZCBtYW5hZ2UgRG9j
+a2VyIGNvbnRhaW5lcnMgdmlhIEFQSSByZXF1ZXN0cyB3aXRoIGF1dG9tYXRl
+ZCBlcnJvciBoYW5kbGluZyBmb3IgaW52YWxpZCBkb21haW5zIG9yIGNvbmZp
+Z3VyYXRpb24gaXNzdWVzLgoyLiAqKkNvbnRhaW5lciBMaWZlY3ljbGUgTWFu
+YWdlbWVudCoqOiBTdGFydC9zdG9wIGNvbnRhaW5lcnMsIG1vdW50L3VubW91
+bnQgc3RvcmFnZSB2b2x1bWVzLCBhbmQgbWFuYWdlIGNvbnRhaW5lciBwZXJt
+aXNzaW9ucyB0aHJvdWdoIGEgY2VudHJhbGl6ZWQgQVBJIGludGVyZmFjZS4K
+My4gKipJbmZyYXN0cnVjdHVyZSBNb25pdG9yaW5nKio6IE1vbml0b3IgY29u
+dGFpbmVyIHJlc291cmNlIHVzYWdlLCBuZXR3b3JrIGFjdGl2aXR5LCBhbmQg
+c3RvcmFnZSBhbGxvY2F0aW9uIHRocm91Z2ggaW50ZWdyYXRlZCBtb25pdG9y
+aW5nIG5vZGVzLgoKIyMgSG93IEl0IFdvcmtzClRoaXMgd29ya2Zsb3cgdXNl
+cyBhIHdlYmhvb2sgZW5kcG9pbnQgdG8gcmVjZWl2ZSBBUEkgcmVxdWVzdHMg
+YW5kIGV4ZWN1dGVzIERvY2tlciBvcGVyYXRpb25zIHRocm91Z2ggU1NIIGNv
+bm5lY3Rpb25zIHRvIGEgaG9zdCBzZXJ2ZXIuIEtleSBjb21wb25lbnRzIGlu
+Y2x1ZGU6CgoxLiAqKldlYmhvb2sgUmVjZWl2ZXIqKjogUmVjZWl2ZXMgQVBJ
+IHJlcXVlc3RzIGNvbnRhaW5pbmcgRG9ja2VyIG9wZXJhdGlvbiBjb21tYW5k
+cyAoc3RhcnQvc3RvcC9tb3VudC9jb25maWd1cmUpCjIuICoqQ29tbWFuZCBS
+b3V0ZXIqKjogUm91dGVzIHJlcXVlc3RzIHRvIHNwZWNpZmljIGhhbmRsZXJz
+IHVzaW5nIHN3aXRjaCBub2RlcyBiYXNlZCBvbiB0aGUgb3BlcmF0aW9uIHR5
+cGUKMy4gKipTU0ggRXhlY3V0b3IqKjogRXhlY3V0ZXMgRG9ja2VyIGNvbW1h
+bmRzIG9uIHRoZSB0YXJnZXQgc2VydmVyIHVzaW5nIHRoZSBTU0ggbm9kZSB3
+aXRoIGVycm9yIGhhbmRsaW5nCjQuIFNlY3VyaXR5IENoZWNrczogVmFsaWRh
+dGVzIHNlcnZlciBkb21haW5zIGFuZCBjb250YWluZXIgY29uZmlndXJhdGlv
+bnMgYmVmb3JlIGV4ZWN1dGluZyBvcGVyYXRpb25zCjUuICoqU3RhdHVzIE1v
+bml0b3JpbmcqKjogVHJhY2tzIGNvbnRhaW5lciByZXNvdXJjZSB1c2FnZSwg
+bmV0d29yayBzdGF0cywgYW5kIHN0b3JhZ2UgYWxsb2NhdGlvbiB0aHJvdWdo
+IG1vbml0b3Jpbmcgbm9kZXMKCiMjIFNlcnZpY2VzCi0gKipEb2NrZXIgRW5n
+aW5lKiogKENvbnRhaW5lciBtYW5hZ2VtZW50KQotICoqU1NIIFByb3RvY29s
+KiogKFNlY3VyZSBjb21tYW5kIGV4ZWN1dGlvbikKLSAqKldlYmhvb2sgU2Vy
+dmljZSoqIChBUEkgZW5kcG9pbnQgaGFuZGxpbmcpCi0gKipMaW51eCBTeXN0
+ZW1kKiogKFNlcnZpY2UgbWFuYWdlbWVudCkKLSAqKk5naW54KiogKFJldmVy
+c2UgcHJveHkgZm9yIGNvbnRhaW5lcnMpCgojIyBIYXNodGFncwojbjhuICNk
+b2NrZXIgI2F1dG9tYXRpb24gI2Rldm9wcyAjY29udGFpbmVycwpgYGAKCipO
+b3RlOiBUaGlzIHdvcmtmbG93IGFwcGVhcnMgdG8gcmVxdWlyZSBhY2Nlc3Mg
+dG8gRG9ja2VyIGVudmlyb25tZW50cyB3aXRoIFNTSCBhY2Nlc3MgYW5kIHBy
+b3BlciBwZXJtaXNzaW9ucyBmb3IgY29udGFpbmVyIG1hbmFnZW1lbnQuIFNv
+bWUgbm9kZSBjb25maWd1cmF0aW9ucyBzdWdnZXN0IGludGVncmF0aW9uIHdp
+dGggc3BlY2lmaWMgaW5mcmFzdHJ1Y3R1cmUgY29tcG9uZW50cyB0aGF0IGFy
+ZW4ndCBmdWxseSBkZXRhaWxlZCBpbiB0aGUgcHJvdmlkZWQgSlNPTi4q
