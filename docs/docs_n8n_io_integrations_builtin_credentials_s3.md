@@ -1,0 +1,77 @@
+[](https://github.com/n8n-io/n8n-docs/edit/main/docs/integrations/builtin/credentials/s3.md "Edit this page")
+
+# S3 credentials[#](#s3-credentials "Permanent link")
+
+You can use these credentials to authenticate the following nodes:
+
+*   [S3](../../app-nodes/n8n-nodes-base.s3/)
+
+## Prerequisites[#](#prerequisites "Permanent link")
+
+Create an account on an S3-compatible server. Use the S3 node for generic or non-AWS S3 like:
+
+*   [DigitalOcean Spaces](https://www.digitalocean.com/products/spaces)
+*   [MinIO](https://min.io/)
+*   [Wasabi](https://wasabi.com/)
+
+## Supported authentication methods[#](#supported-authentication-methods "Permanent link")
+
+*   S3 endpoint
+
+## Related resources[#](#related-resources "Permanent link")
+
+Refer to your S3-compatible provider's documentation for more information on the services. For example, refer to [Wasabi's REST API documentation](https://docs.wasabi.com/docs/rest-api-introduction) or [DigitalOcean's Spaces API Reference Documentation](https://docs.digitalocean.com/reference/api/spaces-api/).
+
+## Using S3 endpoint[#](#using-s3-endpoint "Permanent link")
+
+To configure this credential, you'll need:
+
+*   An **S3 Endpoint**: Enter the URL endpoint for the S3 storage backend.
+*   A **Region**: Enter the region for your S3 storage. Some providers call this the "region slug."
+*   An **Access Key ID**: Enter the S3 access key your S3 provider uses to access the bucket or space. Some providers call this API keys.
+*   A **Secret Access Key**: Enter the secret access key for the **Access Key ID**.
+*   **Force Path Style**: When turned on, the connection uses path-style addressing for buckets.
+*   **Ignore SSL Issues**: When turned on, n8n will connect even if SSL certificate validation fails.
+
+More detailed instructions for DigitalOcean Spaces and Wasabi follow. If you're using a different provider, refer to their documentation for more information.
+
+### Using DigitalOcean Spaces[#](#using-digitalocean-spaces "Permanent link")
+
+To configure the credential for use with DigitalOcean spaces:
+
+1.  In DigitalOceans, go to the control panel and open **Settings**. Your endpoint should be listed there. Prepend `https://` to that endpoint and enter it as the **S3 Endpoint** in n8n.
+    *   Your DigitalOceans endpoint depends on the data center region your bucket's in.
+2.  For the **Region**, enter the region your bucket's located in, for example, `nyc3`.
+    *   If you plan to use this credential to create new Spaces, enter `us-east-1` instead.
+3.  From your DigitalOceans control panel, go to [**API**](https://cloud.digitalocean.com/account/api/spaces).
+4.  Open the **Spaces Keys** tab.
+5.  Select **Generate New Key**.
+6.  Enter a **Name** for your key, like `n8n integration` and select the checkmark.
+7.  Copy the **Key** displayed next to the name and enter this as the **Access Key ID** in n8n.
+8.  Copy the **Secret** value and enter this as the **Secret Access Key** in n8n.
+    *   Refer to [Sharing Access to Buckets with Access Keys](https://docs.digitalocean.com/products/spaces/how-to/manage-access/#access-keys) for more information on generating the key and secret.
+9.  Keep the **Force Path Style** toggle turned off unless you want to use subdomain/virtual calling format.
+10.  Decide how you want the n8n credential to handle SSL:
+    *   To respect SSL certificate validation, keep the default of **Ignore SSL Issues** turned off.
+    *   To connect even if SSL certificate validation fails, turn on **Ignore SSL Issues**.
+
+Refer to DigitalOcean's [Spaces API Reference Documentation](https://docs.digitalocean.com/reference/api/spaces-api/) for more information.
+
+### Using Wasabi[#](#using-wasabi "Permanent link")
+
+To configure the credential for use with Wasabi:
+
+1.  For the **S3 Endpoint**, enter the service URL for your bucket's region. Start it with `https://`.
+    *   Refer to [What are the service URLs for Wasabi's different storage regions?](https://knowledgebase.wasabi.com/hc/en-us/articles/360015106031-What-are-the-service-URLs-for-Wasabi-s-different-storage-regions) to identify the correct URL.
+2.  For the **Region**, enter the region slug portion of the service URL. For example, if you entered `https://s3.us-east-2.wasabisys.com` as the **S3 Endpoint**, `us-east-2` is the region.
+3.  Log into you Wasabi Console as the root user.
+4.  Open the **Menu** and select **Access Keys**.
+5.  Select **CREATE NEW ACCESS KEY**.
+6.  Select whether the key is for the **Root User** or a **Sub-User** and select **CREATE**.
+7.  Copy the **Access Key** and enter it in n8n as the **Access Key ID**.
+8.  Copy the **Secret Key** and enter it in n8n as the **Secret Access Key**.
+    *   Refer to [Creating a Wasabi API Access Key Set](https://knowledgebase.wasabi.com/hc/en-us/articles/360019677192-Creating-a-Wasabi-API-Access-Key-Set) for more information on generating the key and secret.
+9.  Wasabi recommends turning on the **Force Path Style** toggle "because the path-style offers the greatest flexibility in bucket names, avoiding domain name issues." Refer to the Wasabi [REST API Introduction](https://docs.wasabi.com/docs/rest-api-introduction) for more information.
+10.  Decide how you want the n8n credential to handle SSL:
+    *   To respect SSL certificate validation, keep the default of **Ignore SSL Issues** turned off.
+    *   To connect even if SSL certificate validation fails, turn on **Ignore SSL Issues**.

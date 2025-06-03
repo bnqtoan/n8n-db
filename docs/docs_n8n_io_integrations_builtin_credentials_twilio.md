@@ -1,0 +1,68 @@
+[](https://github.com/n8n-io/n8n-docs/edit/main/docs/integrations/builtin/credentials/twilio.md "Edit this page")
+
+# Twilio credentials[#](#twilio-credentials "Permanent link")
+
+You can use these credentials to authenticate the following nodes:
+
+*   [Twilio](../../app-nodes/n8n-nodes-base.twilio/)
+*   [Twilio trigger](../../trigger-nodes/n8n-nodes-base.twiliotrigger/)
+
+## Supported authentication methods[#](#supported-authentication-methods "Permanent link")
+
+*   **Auth token**: Twilio recommends this method for local testing only.
+*   **API key**: Twilio recommends this method for production.
+
+## Related resources[#](#related-resources "Permanent link")
+
+Refer to [Twilio's API documentation](https://www.twilio.com/docs) for more information about the service.
+
+## Using Auth Token[#](#using-auth-token "Permanent link")
+
+To configure this credential, you'll need a [Twilio](https://twilio.com/) account and:
+
+*   Your Twilio **Account SID**
+*   Your Twilio **Auth Token**
+
+To set up the credential:
+
+1.  In n8n, select **Auth Token** as the **Auth Type**.
+2.  In Twilio, go to **Console Dashboard > Account Info**.
+3.  Copy your **Account SID** and enter this in your n8n credential. This acts as a username.
+4.  Cop your **Auth Token** and enter this in your n8n credential. This acts as a password.
+
+Refer to [Auth Tokens and How to Change Them](https://help.twilio.com/articles/223136027-Auth-Tokens-and-How-to-Change-Them) for more information.
+
+## Using API key[#](#using-api-key "Permanent link")
+
+To configure this credential, you'll need a [Twilio](https://twilio.com/) account and:
+
+*   Your Twilio **Account SID**
+*   An **API Key SID**: Generated when you create an API key.
+*   An **API Key Secret**: Generated when you create an API key.
+
+To set up the credential:
+
+1.  In n8n, select **API Key** as the **Auth Type**.
+2.  In Twilio, go to **Console Dashboard > Account Info**.
+3.  Copy your **Account SID** and enter it in your n8n credential.
+4.  In Twilio, go to your account's [**API keys & tokens**](https://www.twilio.com/console/project/api-keys) page.
+5.  Select **Create API Key**.
+6.  Enter a **Friendly name** for your API key, like `n8n integration`.
+7.  Select your **Key type**. n8n works with either **Main** or **Standard**. Refer to [Selecting an API key type](#selecting-an-api-key-type) for more information.
+8.  Select **Create API Key** to finish creating the key.
+9.  On the **Copy secret key** page, copy the **SID** displayed with the key and enter it in your n8n credential **API Key SID**.
+10.  On the **Copy secret key** page, copy the **Secret** displayed with the key and enter it in your n8n credential **API Key Secret**.
+
+Refer to [Create an API key](https://www.twilio.com/docs/iam/api-keys#create-an-api-key) for more detailed instructions.
+
+### Selecting an API key type[#](#selecting-an-api-key-type "Permanent link")
+
+When you create a Twilio API key, you must select a key type. The n8n credential works with **Main** and **Standard** key types.
+
+Here are more details on the different API key types:
+
+*   **Main**: This key type gives you the same level of access as using your Account SID and Auth Token in API requests.
+*   **Standard**: This key type gives you access to all the functionality in Twilio's APIs except the API key resources and Account resources.
+*   **Restricted**: This key type is in beta. n8n hasn't tested the credential against this key type; if you try it, let us know if you run into any issues.
+
+Refer to [Types of API keys](https://www.twilio.com/docs/iam/api-keys#types-of-api-keys) for more information on the key types.
