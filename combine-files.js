@@ -55,6 +55,7 @@ async function main() {
         // Find all JSON and MD files
         const jsonFiles = await findFiles('workflows', '.json');
         const mdFiles = await findFiles('workflows', '.md');
+        const mdDocFiles = await findFiles('docs', '.md');
 
         // Combine JSON files
         const combinedJson = await combineJsonFiles(jsonFiles);
@@ -65,6 +66,11 @@ async function main() {
         const combinedMd = await combineMdFiles(mdFiles);
         await fs.writeFile('combined-workflows.md', combinedMd);
         console.log(`Combined ${mdFiles.length} MD files into combined-workflows.md`);
+
+        // combine md doc files
+        const combinedMdDoc = await combineMdFiles(mdDocFiles);
+        await fs.writeFile('combined-docs.md', combinedMdDoc);
+        console.log(`Combined ${mdDocFiles.length} MD files into combined-docs.md`);
 
     } catch (error) {
         console.error('Error:', error.message);
